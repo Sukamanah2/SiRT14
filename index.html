@@ -3,86 +3,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RT014/RW012 Responsive</title>
+<title>Informasi RT014/RW012</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial,sans-serif}
-body{background:#f4f6f9}
-.header{height:70px;background:#0d6efd;color:#fff;display:flex;align-items:center;padding:0 15px}
-.menu-btn{display:none;font-size:28px;background:none;border:none;color:#fff;margin-right:12px;cursor:pointer}
-.logo{width:48px;height:48px;border-radius:50%;background:#fff;padding:3px;margin-right:10px}
-.container{display:flex}
-.sidebar{width:250px;background:#1f2937;color:#fff;min-height:calc(100vh - 70px);transition:.3s}
-.sidebar a{display:block;color:#fff;text-decoration:none;padding:18px 20px;border-bottom:1px solid rgba(255,255,255,.08)}
-.sidebar a:hover{background:#2563eb}
-.content{flex:1;padding:25px}
-.running{background:#0d6efd;color:#fff;padding:8px}
-.footer{text-align:center;padding:12px;background:#fff}
-@media(max-width:768px){
-.menu-btn{display:block}
+body{background:#f4f6f9;display:flex;flex-direction:column;min-height:100vh}
+.header{height:80px;background:#0d6efd;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:0 25px}
+.header-left{display:flex;align-items:center}
+.logo{width:60px;height:60px;border-radius:50%;background:#fff;padding:4px;margin-right:15px;object-fit:contain}
+.container{display:flex;flex:1}
+.sidebar{width:260px;background:#1f2937;color:#fff}
+.sidebar ul{list-style:none}
+.sidebar li{padding:18px 22px;border-bottom:1px solid rgba(255,255,255,.08);cursor:pointer}
+.sidebar li:hover,.sidebar li.active{background:#2563eb}
+.sidebar i{margin-right:10px}
+.content{flex:1;padding:30px}
+.page{display:none}
+.page.active{display:block}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:25px}
+.card{background:#fff;border-radius:14px;padding:25px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+.card h3{color:#666}
+.card h1{font-size:46px;color:#0d6efd;margin-top:10px}
+.running{background:#0d6efd;color:#fff;padding:10px 0;font-weight:bold}
+.footer{text-align:center;padding:12px;background:#fff;color:#666}
+
+.menu-btn{display:none}
+@media (max-width:768px){
+.header{height:auto;padding:12px 15px;display:flex;align-items:center;gap:10px}
+.menu-btn{display:block;background:none;border:none;color:#fff;font-size:28px;cursor:pointer}
 .container{display:block}
-.sidebar{
-position:fixed;
-left:-260px;
-top:70px;
-width:250px;
-z-index:999;
-height:calc(100vh - 70px);
-overflow:auto;
-}
+.sidebar{position:fixed;left:-260px;top:80px;width:250px;height:calc(100vh - 80px);overflow:auto;z-index:999;transition:left .3s}
 .sidebar.show{left:0}
 .content{padding:15px}
-img.slider{width:100%;height:220px;object-fit:cover;border-radius:12px}
+.slider-img{height:220px!important}
+.cards{grid-template-columns:1fr}
+table{display:block;overflow-x:auto;white-space:nowrap}
 }
-@media(min-width:769px){
-img.slider{width:100%;height:450px;object-fit:cover;border-radius:12px}
-}
+</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+.slider-img{height:500px;object-fit:cover;border-radius:15px}
+.carousel-caption{background:rgba(0,0,0,.45);padding:15px;border-radius:10px}
 </style>
 </head>
 <body>
 <div class="header">
-<button class="menu-btn" onclick="toggleMenu()"><i class="bi bi-list"></i></button>
+<button class="menu-btn" onclick="toggleMenu()">☰</button><div class="header-left">
 <img src="logo_RT_14_Rw_12-removebg-preview.png" class="logo">
-<div>
-<h2>SISTEM INFORMASI WARGA</h2>
-<div>RT014 / RW012</div>
+<div><h2>INFORMASI WARGA</h2><div>RT014 / RW012</div></div>
 </div>
+<div></div>
 </div>
 
 <div class="container">
-<nav class="sidebar" id="sidebar">
-<a href="#">🏠 Home</a>
-<a href="#">👨‍👩‍👧 Data Warga</a>
-<a href="#">🕌 Jadwal Pengajian</a>
-<a href="#">🤲 Data Kifayah</a>
-<a href="#">🏛️ Struktur Organisasi</a>
-<a href="#">📸 Kegiatan Warga</a>
-<a href="#">💰 Laporan Keuangan</a>
-<a href="#">📢 Pengumuman</a>
-</nav>
+<div class="sidebar" id="sidebar">
+<ul>
+<li class="active" onclick="showPage('home',this)"><i class="bi bi-speedometer2"></i>Home</li>
+<li onclick="showPage('warga',this)"><i class="bi bi-people-fill"></i>Data Warga</li>
+<li onclick="showPage('pengajian',this)"><i class="bi bi-calendar-event"></i>Jadwal Pengajian</li>
+<li onclick="showPage('kifayah',this)"><i class="bi bi-book-half"></i>Data Kifayah</li>
+<li onclick="showPage('organisasi',this)"><i class="bi bi-diagram-3"></i>Struktur Organisasi</li>
+<li onclick="showPage('kegiatan',this)"><i class="bi bi-calendar-check"></i>Kegiatan Warga</li>
+<li onclick="showPage('keuangan',this)"><i class="bi bi-cash-stack"></i>Laporan Keuangan</li>
+<li onclick="showPage('pengumuman',this)"><i class="bi bi-megaphone"></i>Pengumuman</li>
+</ul>
+</div>
 
 <div class="content">
-<h1>Home</h1>
-<hr><br>
-<img src="WhatsApp Image 2026-07-13 at 5.07.13 PM.jpeg" class="slider" alt="Slider">
-<p style="margin-top:20px">Versi ini sudah responsif. Di HP menu berubah menjadi tombol ☰ di kiri atas.</p>
+<div id="home" class="page active">
+<h1>Selamat Datang</h1><hr><br>
+<div id="rtSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3500">
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img src="WhatsApp Image 2026-07-13 at 5.07.13 PM.jpeg" class="d-block w-100 slider-img">
+<div class="carousel-caption"><h3>Pengajian Rutin RT014/RW012</h3></div>
+</div>
+<div class="carousel-item"><img src="WhatsApp Image 2026-07-13 at 5.02.15 PM.jpeg" class="d-block w-100 slider-img"><div class="carousel-caption"><h3>Tumpeng Kemerdekaan</h3></div></div>
+<div class="carousel-item"><img src="WhatsApp Image 2026-07-13 at 5.02.14 PM.jpeg" class="d-block w-100 slider-img"><div class="carousel-caption"><h3>Pentas Anak-anak</h3></div></div>
+<div class="carousel-item"><img src="WhatsApp Image 2026-07-13 at 5.02.07 PM.jpeg" class="d-block w-100 slider-img"><div class="carousel-caption"><h3>Lomba 17 Agustus</h3></div></div>
+<div class="carousel-item"><img src="WhatsApp Image 2026-07-13 at 5.01.50 PM.jpeg" class="d-block w-100 slider-img"><div class="carousel-caption"><h3>Panitia RT014/RW012</h3></div></div>
+<div class="carousel-item"><img src="WhatsApp Image 2026-07-13 at 5.01.47 PM.jpeg" class="d-block w-100 slider-img"><div class="carousel-caption"><h3>Tahun Baru Islam</h3></div></div>
+<div class="carousel-item"><img src="WhatsApp Image 2026-07-13 at 5.01.46 PM.jpeg" class="d-block w-100 slider-img"><div class="carousel-caption"><h3>Pawai Muharram</h3></div></div>
+<div class="carousel-item"><img src="WhatsApp Image 2026-07-13 at 5.02.25 PM.jpeg" class="d-block w-100 slider-img"><div class="carousel-caption"><h3>Prestasi Warga</h3></div></div>
+</div>
+<button class="carousel-control-prev" type="button" data-bs-target="#rtSlider" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+<button class="carousel-control-next" type="button" data-bs-target="#rtSlider" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+</div>
+</div>
+<div id="warga" class="page">
+<h1>Data Warga</h1><hr>
+<div class="cards">
+<div class="card"><h3>Total Warga</h3><h1>234</h1></div>
+<div class="card"><h3>Total KK</h3><h1>64</h1></div>
+<div class="card"><h3>Warga Tetap</h3><h1>50</h1></div>
+<div class="card"><h3>Total Sewa</h3><h1>14</h1></div>
+<div class="card"><h3>Total Rumah</h3><h1>76</h1></div>
+<div class="card"><h3>Rumah Kosong</h3><h1>12</h1></div>
+<div class="card"><h3>Laki-laki</h3><h1>119</h1></div>
+<div class="card"><h3>Perempuan</h3><h1>115</h1></div>
+<div class="card"><h3>Muslim</h3><h1>59</h1></div>
+<div class="card"><h3>Non Muslim</h3><h1>5</h1></div>
+<div class="card"><h3>RUKEM</h3><h1>61</h1></div>
+<div class="card"><h3>Non RUKEM</h3><h1>3</h1></div>
 </div>
 </div>
 
-<div class="running"><marquee>🏡 GUYUB • RUKUN • BERIMAN • RT014/RW012 • SELAMAT DATANG</marquee></div>
+<div id="pengajian" class="page"><h1>Jadwal Pengajian</h1><hr><p>Isi menyusul.</p></div>
+<div id="kifayah" class="page"><h1>Data Kifayah</h1><hr><p>Isi menyusul.</p></div>
+<div id="organisasi" class="page"><h1>Struktur Organisasi</h1><hr><p>Isi menyusul.</p></div>
+<div id="kegiatan" class="page"><h1>Kegiatan Warga</h1><hr><p>Isi menyusul.</p></div>
+<div id="keuangan" class="page"><h1>Laporan Keuangan</h1><hr><p>Isi menyusul.</p></div>
+<div id="pengumuman" class="page"><h1>Pengumuman</h1><hr><p>Isi menyusul.</p></div>
+</div>
+</div>
+
+<div class="running">
+<marquee scrollamount="6">🏡 SELAMAT DATANG DI WEBSITE RESMI RT014/RW012 • GUYUB • RUKUN • BERIMAN • RT014/RW012 •</marquee>
+</div>
 <div class="footer">Copyright © 2026 RT014/RW012</div>
 
 <script>
-function toggleMenu(){
-document.getElementById('sidebar').classList.toggle('show');
+function showPage(id,el){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.querySelectorAll('.sidebar li').forEach(li=>li.classList.remove('active'));
+el.classList.add('active');
 }
-document.querySelectorAll('.sidebar a').forEach(a=>{
-a.onclick=function(){
-if(window.innerWidth<=768){
-document.getElementById('sidebar').classList.remove('show');
-}
-}
-});
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
