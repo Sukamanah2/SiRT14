@@ -27,7 +27,38 @@ th{background:#0d6efd;color:#fff}
 
 header{display:flex;align-items:center;justify-content:center;gap:20px}
 .logo{width:80px;height:80px;object-fit:contain;background:#fff;border-radius:50%;padding:4px}
+/*============================
+RUNNING TEXT
+============================*/
 
+.running-text{
+    width:100%;
+    overflow:hidden;
+    background:#0d6efd;
+    color:white;
+    border-radius:10px;
+    padding:15px 0;
+    white-space:nowrap;
+}
+
+.running-text span{
+    display:inline-block;
+    white-space:nowrap;
+    padding-left:100%;
+    font-size:30px;
+    font-weight:bold;
+    animation:marquee 15s linear infinite;
+}
+
+@keyframes marquee{
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(-200%);
+    }
+}
 </style>
 </head>
 <body>
@@ -65,7 +96,7 @@ header{display:flex;align-items:center;justify-content:center;gap:20px}
 
 <div class="running-text">
     <span>
-        🏡 GUYUB • RUKUN • BERIMAN • SELAMAT DATANG DI WEBSITE RT014/RW012 • SEMOGA HARI ANDA MENYENANGKAN •
+        🏡 GUYUB • RUKUN • BERIMAN • SELAMAT DATANG DI WEBSITE RESMI RT014/RW012 •
     </span>
 </div>
 </div>
