@@ -4,61 +4,203 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sistem Informasi RT014/RW012</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f4f6f9}
-header{background:#0d6efd;color:#fff;padding:18px;text-align:center}
-.container{display:flex;min-height:100vh}
-.sidebar{width:230px;background:#1f2937;color:#fff;padding:20px}
-.sidebar h2{margin-bottom:20px}
-.sidebar ul{list-style:none}
-.sidebar li{padding:12px;border-radius:6px;cursor:pointer}
-.sidebar li:hover{background:#374151}
-.main{flex:1;padding:25px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:20px}
-.card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.15);text-align:center}
-.card h3{color:#666;font-size:16px}
-.card h1{font-size:40px;color:#0d6efd;margin-top:10px}
-.table{margin-top:30px;background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
-table{width:100%;border-collapse:collapse}
-th,td{padding:12px;border-bottom:1px solid #ddd}
-th{background:#0d6efd;color:#fff}
-.footer{text-align:center;padding:20px;color:#777}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,Arial,sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    height:80px;
+    background:#0d6efd;
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 30px;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+.header-left{
+    display:flex;
+    align-items:center;
+}
+
+.logo{
+
+    width:60px;
+    height:60px;
+
+    background:white;
+
+    border-radius:50%;
+
+    margin-right:15px;
+
+    object-fit:contain;
+}
+
+.title h2{
+
+    font-size:24px;
+
+}
+
+.title p{
+
+    font-size:14px;
+
+}
+
+/* ================= LAYOUT ================= */
+
+.container{
+
+    display:flex;
+
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+
+    width:250px;
+
+    background:#1f2937;
+
+    min-height:calc(100vh - 80px);
+
+    color:white;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar li{
+
+    padding:18px 25px;
+
+    cursor:pointer;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
+
+}
+
+.sidebar li:hover{
+
+    background:#2563eb;
+
+}
+
+.sidebar li i{
+
+    margin-right:10px;
+
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+
+    flex:1;
+
+    padding:30px;
+
+}
+
 </style>
+
 </head>
+
 <body>
-<header><h1>SISTEM INFORMASI WARGA RT014/RW012</h1></header>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="header-left">
+
+<img src="logo_RT_14_Rw_12-removebg-preview.png" class="logo">
+
+<div class="title">
+
+<h2>SISTEM INFORMASI WARGA</h2>
+
+<p>RT014 / RW012</p>
+
+</div>
+
+</div>
+
+<div>
+
+Administrator
+
+</div>
+
+</div>
+
+<!-- CONTENT -->
+
 <div class="container">
+
+<!-- SIDEBAR -->
+
 <div class="sidebar">
-<h2>📋 Menu</h2>
+
 <ul>
-<li>🏠 Dashboard</li>
-<li>💰 Gallery</li>
-<li>📢 Pengumuman</li>
-<li>📊 Statistik</li>
-<li>⚙ Pengaturan</li>
+
+<li><i class="bi bi-speedometer2"></i> Dashboard</li>
+
+<li><i class="bi bi-people-fill"></i> Data Warga</li>
+
+<li><i class="bi bi-calendar-event-fill"></i> Jadwal Pengajian</li>
+
+<li><i class="bi bi-book-half"></i> Data Kifayah</li>
+
+<li><i class="bi bi-cash-stack"></i> Laporan Keuangan RT14</li>
+
+<li><i class="bi bi-megaphone-fill"></i> Pengumuman</li>
+
 </ul>
+
 </div>
-<div class="main">
-<h2>Dashboard</h2>
-<div class="cards">
-<div class="card"><h3>Total Warga</h3><h1>235</h1></div>
-<div class="card"><h3>Total KK</h3><h1>65</h1></div>
-<div class="card"><h3>Laki-laki</h3><h1>120</h1></div>
-<div class="card"><h3>Perempuan</h3><h1>115</h1></div>
-<div class="card"><h3>Total Rumah</h3><h1>76</h1></div>
-<div class="card"><h3>Rumah Kosong</h3><h1>11</h1></div>
+
+<!-- CONTENT -->
+
+<div class="content">
+
+<h1>Dashboard</h1>
+
+<hr><br>
+
+Selamat Datang di Website RT014/RW012
+
 </div>
-<div class="table">
-<h2>Data Warga Terbaru</h2>
-<table>
-<tr><th>No</th><th>Nama</th><th>NIK</th><th>Jenis Kelamin</th><th>Status</th></tr>
-<tr><td>1</td><td>Andi</td><td>3603xxxxxxxx</td><td>Laki-laki</td><td>Tetap</td></tr>
-<tr><td>2</td><td>Siti</td><td>3603xxxxxxxx</td><td>Perempuan</td><td>Sewa</td></tr>
-</table>
+
 </div>
-</div>
-</div>
-<div class="footer">Copyright © 2026 RT014/RW012</div>
+
 </body>
+
 </html>
