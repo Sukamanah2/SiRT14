@@ -28,22 +28,103 @@ body{background:#f4f6f9;display:flex;flex-direction:column;min-height:100vh}
 .footer{text-align:center;padding:12px;background:#fff;color:#666}
 
 .menu-btn{display:none}
+
 @media (max-width:768px){
-.header{height:auto;padding:12px 15px;display:flex;align-items:center;gap:10px}
-.menu-btn{display:block;background:none;border:none;color:#fff;font-size:28px;cursor:pointer}
-.container{display:block}
-.sidebar{position:fixed;left:-260px;top:0;width:260px;height:100vh;box-shadow:2px 0 15px rgba(0,0,0,.3);overflow:auto;z-index:999;transition:left .3s}
-.sidebar.show{left:0}
-.content{padding:15px}
-.slider-img{height:220px!important}
-.cards{grid-template-columns:1fr}
-table{display:block;overflow-x:auto;white-space:nowrap}
+
+.header{
+    height:auto;
+    padding:12px 15px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.menu-btn{
+    display:block;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.container{
+    display:block;
+}
+
+.sidebar{
+    position:fixed;
+    left:-260px;
+    top:0;
+    width:260px;
+    height:100vh;
+    overflow:auto;
+    z-index:999;
+    box-shadow:2px 0 15px rgba(0,0,0,.3);
+    transition:left .3s;
+}
+
+.sidebar.show{
+    left:0;
+}
+
+.content{
+    padding:15px;
+}
+
+.slider-img{
+    width:100%;
+    height:auto;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+.carousel-caption{
+    width:80%;
+    left:50%;
+    bottom:12px;
+    transform:translateX(-50%);
+    padding:10px 14px;
+    border-radius:12px;
+    background:rgba(0,0,0,.40);
+}
+
+.carousel-caption h3{
+    font-size:20px;
+    margin:0;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+table{
+    display:block;
+    overflow-x:auto;
+    white-space:nowrap;
+}
+
 }
 </style>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
-.slider-img{height:500px;object-fit:cover;border-radius:15px}
-.carousel-caption{background:rgba(0,0,0,.45);padding:15px;border-radius:10px}
+.slider-img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+.carousel-caption{
+    left:50%;
+    bottom:20px;
+    transform:translateX(-50%);
+    width:60%;
+    background:rgba(0,0,0,.45);
+    border-radius:15px;
+    padding:18px;
+}
 </style>
 </head>
 <body>
